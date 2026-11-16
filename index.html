@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lohachandar V N | VLSI Design &amp; Verification</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f5;--panel:#fff;--ink:#12202f;--mute:#506072;--line:#c9d2dc;--m1:#2447e0;--m2:#c2268f;--via:#a97c00;--sig:#2447e0;
+--hd:"Bricolage Grotesque",Georgia,sans-serif;--bd:"IBM Plex Sans",system-ui,sans-serif;--mo:"IBM Plex Mono",ui-monospace,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1722;--panel:#152233;--ink:#e6edf5;--mute:#9db0c4;--line:#2a3b50;--m1:#6f8cff;--m2:#f26cc0;--via:#e0b73a;--sig:#6f8cff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1722;--panel:#152233;--ink:#e6edf5;--mute:#9db0c4;--line:#2a3b50;--m1:#6f8cff;--m2:#f26cc0;--via:#e0b73a;--sig:#6f8cff;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--bd)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--m1);outline-offset:3px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:20px;align-items:center;padding:12px 24px;overflow-x:auto;white-space:nowrap}
+nav b{font:800 18px var(--hd);margin-right:auto}
+nav a{text-decoration:none;color:var(--mute);font-size:14px}nav a:hover{color:var(--ink)}
+main{max-width:1000px;margin:0 auto;padding:0 24px}
+section{padding:64px 0 8px}
+h1{font:800 clamp(44px,9vw,92px)/.95 var(--hd);letter-spacing:-.03em;margin:0}
+h2{font:700 28px var(--hd);margin:0 0 24px;letter-spacing:-.01em}
+h3{font:700 19px var(--hd);margin:0}
+.hero{padding-top:72px}
+.role{font:500 clamp(18px,2.6vw,24px)/1.35 var(--hd);color:var(--mute);margin:20px 0 0;max-width:34ch}
+.lead{max-width:62ch;color:var(--mute);margin:20px 0 0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{padding:10px 18px;border:1.5px solid var(--ink);border-radius:4px;text-decoration:none;font-weight:500;font-size:15px}
+.btn.p{background:var(--ink);color:var(--bg)}
+.wave{margin-top:48px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px 10px}
+.wave svg{width:100%;height:auto;display:block}
+.wave text{font:400 12px var(--mo);fill:var(--mute)}
+.wave .t{fill:none;stroke:var(--sig);stroke-width:2;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.4s ease-out forwards}
+.wave .g{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cap{font:400 12px var(--mo);color:var(--mute);margin:6px 0 0}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat{flex:1 1 140px;border-left:3px solid var(--m1);padding:2px 0 2px 12px}
+.stat b{font:800 28px var(--hd);display:block}.stat span{color:var(--mute);font-size:14px}
+.stack{display:grid;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--panel)}
+.layer{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 18px;border-top:1px solid var(--line);border-left:6px solid var(--c)}
+.layer:first-child{border-top:0}
+.layer h3{font-size:16px}.layer small{display:block;color:var(--mute);font:400 12px var(--mo);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 13px var(--mo);padding:3px 10px;border:1px solid var(--line);border-radius:3px;background:var(--bg)}
+.chip.k{border-color:var(--c);}
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 28px 26px}
+.job:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;background:var(--bg);border:2px solid var(--m1);border-radius:50%}
+.job .w{font:400 13px var(--mo);color:var(--mute)}
+ul{margin:8px 0 0;padding-left:18px;color:var(--mute)}li{margin:3px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.card .tag{font:500 12px var(--mo);color:var(--c)}
+.card.feat{grid-column:1/-1}
+.card p{margin:0;color:var(--mute);font-size:15px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px}
+dl{margin:0}dt{font-weight:500;margin-top:14px}dd{margin:2px 0 0;color:var(--mute);font-size:15px}
+footer{margin-top:72px;border-top:1px solid var(--line);padding:32px 24px 40px;text-align:center;color:var(--mute);font-size:14px}
+footer .cta{justify-content:center}
+@media (max-width:640px){.layer{grid-template-columns:1fr;gap:8px}nav{gap:14px;padding:10px 16px}main{padding:0 16px}}
+@media (prefers-reduced-motion:reduce){.wave .t{animation:none;stroke-dashoffset:0}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><b>LVN</b><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a></nav>
+<main>
+<section class="hero">
+<h1>Lohachandar V N</h1>
+<p class="role">Final-year ECE student building and verifying digital hardware.</p>
+<p class="lead">I design RTL in Verilog and verify it with SystemVerilog, UVM, assertions and functional coverage. My work runs from a RISC-V processor testbench to a transistor-level adder laid out in Cadence Virtuoso.</p>
+<div class="cta"><a class="btn p" href="#projects">See my projects</a><a class="btn" href="mailto:lohachandar05@gmail.com">Email me</a></div>
+<div class="wave" role="img" aria-label="Timing diagram of a FIFO write: clock, write enable, data bus and full flag">
+<svg id="wv" viewBox="0 0 900 230"></svg>
+<p class="cap">Timing diagram of a synchronous FIFO write, the kind I check with SVA assertions.</p>
+</div>
+<div class="stats">
+<div class="stat"><b>5</b><span>RTL and verification projects</span></div>
+<div class="stat"><b>8.82</b><span>CGPA, B.E. ECE (2023–2027)</span></div>
+<div class="stat"><b>1500+</b><span>LeetCode rating, 300+ solved</span></div>
+<div class="stat"><b>2025</b><span>VLSI verification intern at CIT</span></div>
+</div>
+</section>
+
+<section id="skills"><h2>Skills</h2><div class="stack" id="stack"></div></section>
+<section id="projects"><h2>Projects</h2><div class="grid" id="proj"></div></section>
+<section id="experience"><h2>Experience</h2><div class="tl" id="exp"></div></section>
+
+<section id="credentials"><h2>Credentials</h2>
+<div class="two">
+<div><h3>Achievements</h3><dl>
+<dt>Visteon Scholar</dt><dd>Selected for a competitive embedded training program on automotive electronics.</dd>
+<dt>Maven Silicon</dt><dd>In training for RTL design verification as a fresher.</dd>
+<dt>Content Head, College Symposium</dt><dd>Led the content and communications team, from event promotion to participant engagement.</dd>
+<dt>Competitions</dt><dd>Runner-up for project innovation at Evolumin. First prize in the MIT Byte Beats quiz. Took part in the DVCon design contest, Chipin Hackathon and AMD and Arm competitions.</dd>
+</dl></div>
+<div><h3>Certifications</h3><dl>
+<dt>NPTEL</dt><dd>VLSI Design Flow: RTL to GDS (IIIT Delhi). Digital Electronic Circuits, Operating System Fundamentals, and Industry 4.0 and Industrial IoT (IIT Kharagpur).</dd>
+<dt>Udemy</dt><dd>Static Timing Analysis by Kunal Ghosh.</dd>
+<dt>Cisco Networking Academy</dt><dd>Introduction to Cybersecurity. Cybersecurity Essentials.</dd>
+<dt>EDUSKILLS</dt><dd>Employability Skills Job-Ready Virtual Internship.</dd>
+</dl>
+<h3 style="margin-top:28px">Coding practice</h3>
+<dl><dt>LeetCode</dt><dd>300+ problems, rating 1500+.</dd><dt>CodeChef</dt><dd>200+ problems, rating 1150+.</dd><dt>SkillRack</dt><dd>600+ problems.</dd></dl></div>
+</div></section>
+</main>
+<footer id="contact"><h2 style="margin-bottom:8px">Let’s talk</h2>
+<p>Open to VLSI design and verification roles. Based in Chennai, India.</p>
+<div class="cta"><a class="btn p" href="mailto:lohachandar05@gmail.com">lohachandar05@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/lohachandarvn" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/LohachandarVN" rel="noopener">GitHub</a></div></footer>
+
+<script>
+// Timing diagram
+(function(){
+var s=document.getElementById('wv'),x0=110,hp=40,n=18,h=24,out='';
+var rows=[['clk',30],['wr_en',90],['data',150],['full',205]];
+rows.forEach(function(r){out+='<text x="0" y="'+(r[1]+4)+'">'+r[0]+'</text>'});
+for(var i=0;i<=n;i+=2){out+='<line class="g" x1="'+(x0+i*hp)+'" y1="10" x2="'+(x0+i*hp)+'" y2="222"/>'}
+var clk='M'+x0+' '+(30+h/2);
+for(var i=0;i<n;i++){var y=(i%2===0)?30-h/2:30+h/2;clk+=' L'+(x0+i*hp)+' '+y+' L'+(x0+(i+1)*hp)+' '+y}
+out+='<path class="t" d="'+clk+'"/>';
+var hi=90-h/2,lo=90+h/2;
+out+='<path class="t" d="M'+x0+' '+lo+' L'+(x0+4*hp)+' '+lo+' L'+(x0+4*hp)+' '+hi+' L'+(x0+12*hp)+' '+hi+' L'+(x0+12*hp)+' '+lo+' L'+(x0+n*hp)+' '+lo+'"/>';
+var segs=[[4,8,'D0'],[8,12,'D1']];
+segs.forEach(function(g){var a=x0+g[0]*hp,b=x0+g[1]*hp,y=150;
+out+='<path class="t" d="M'+a+' '+y+' L'+(a+8)+' '+(y-h/2)+' L'+(b-8)+' '+(y-h/2)+' L'+b+' '+y+' L'+(b-8)+' '+(y+h/2)+' L'+(a+8)+' '+(y+h/2)+' Z"/><text x="'+((a+b)/2-8)+'" y="154">'+g[2]+'</text>'});
+out+='<path class="t" d="M'+x0+' '+(205+h/2)+' L'+(x0+n*hp)+' '+(205+h/2)+'"/>';
+s.innerHTML=out})();
+
+var skills=[
+['Verification','SystemVerilog, UVM, SVA','var(--m2)',['SystemVerilog','UVM','SVA assertions','Functional coverage','Constrained-random testing','QuestaSim']],
+['RTL design','Verilog HDL, FPGA flow','var(--m1)',['Verilog','FIFO and router design','APB and SPI interfaces','Xilinx Vivado','Lint','STA']],
+['Physical and analog','Schematic to layout','var(--via)',['Cadence Virtuoso','Spectre','Assura DRC/LVS','LTspice']],
+['Embedded','Boards and protocols','var(--mute)',['Arduino','ESP32','ESP8266','Raspberry Pi Pico','MicroPython']],
+['Software','Languages and OS','var(--line)',['C/C++','Java','Linux (proficient)']]];
+document.getElementById('stack').innerHTML=skills.map(function(s){return '<div class="layer" style="--c:'+s[2]+'"><div><h3>'+s[0]+'</h3><small>'+s[1]+'</small></div><div class="chips">'+s[3].map(function(c){return '<span class="chip">'+c+'</span>'}).join('')+'</div></div>'}).join('');
+
+var projs=[
+['Synchronous FIFO with SVA and functional coverage','SystemVerilog','var(--m2)',true,'Designed and verified a synchronous FIFO covering read and write, full and empty handling, overflow and underflow.',['SVA checks for write and read constraints across clock cycles','Covergroups and coverpoints to measure completeness at boundary conditions']],
+['Module-wise verification of a 32-bit RISC-V processor','SystemVerilog','var(--m2)',false,'Built SystemVerilog testbenches and validated the ALU, register file and control unit through simulation and debug.',[]],
+['Router 1x3 with a UVM environment','Verilog, UVM','var(--m2)',false,'Built a UVM environment to check packet routing across three output ports, with a reusable driver, monitor, agent and scoreboard.',[]],
+['APB-interfaced SPI master','Verilog','var(--m1)',false,'Designed and verified an SPI master behind an APB register interface, with configurable SPI clock timing and control signals.',[]],
+['4-bit adder-subtractor, schematic to layout','Cadence Virtuoso','var(--via)',false,'Took the design from schematic entry through simulation and functional verification, using constrained-random testing.',[]]];
+document.getElementById('proj').innerHTML=projs.map(function(p){return '<article class="card'+(p[3]?' feat':'')+'" style="--c:'+p[2]+'"><span class="tag">'+p[1]+'</span><h3>'+p[0]+'</h3><p>'+p[4]+'</p>'+(p[5].length?'<ul>'+p[5].map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul>':'')+'</article>'}).join('');
+
+var jobs=[
+['VLSI design and verification intern','Chennai Institute of Technology, Kancheepuram','May–June 2025',['Used Cadence and Synopsys tools for design, simulation and verification.','Verified the ALU, register file and control unit of a RISC-V processor with a SystemVerilog testbench.']],
+['Intern','Cosmic Electronics, Coimbatore','Nov–Dec 2024',['Built and debugged electronic circuits, with soldering and component-level troubleshooting.','Led a team project to an on-time finish.']],
+['Intern','Easun MR, Tiruvallur','June 2024',['Studied OLTCs and NIFPS: design principles, working mechanisms and real-time behavior.','Observed maintenance and safety procedures in high-voltage systems.']]];
+document.getElementById('exp').innerHTML=jobs.map(function(j){return '<div class="job"><h3>'+j[0]+'</h3><div>'+j[1]+'</div><div class="w">'+j[2]+'</div><ul>'+j[3].map(function(l){return '<li>'+l+'</li>'}).join('')+'</ul></div>'}).join('');
+</script>
+</body>
+</html>
